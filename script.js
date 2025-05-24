@@ -62,6 +62,7 @@ window.onload = function() {
     setInterval(placePipes, 1500); // Display Pipe every 1.5s
 
     document.addEventListener("keydown", moveBat);
+    screen.addEventListener("click", moveBat);
 
 }
 
@@ -164,10 +165,9 @@ function placePipes() {
 }
 
 function moveBat(e) {
-    if (e.code == "Space" || e.code == "ArrowUp") {
+    if (e.code == "Space" || e.type === "click") {
         if (!gameStarted) {
             gameStarted = true;
-            return;
         }
 
         if (gameOver) {
